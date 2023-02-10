@@ -3,6 +3,7 @@ const Tabpanel = (props) => {
     <div
       id={props.id}
       role='tabpanel'
+      tabIndex='0'
       aria-labelledby={props.ariaLabelledby}
       className={props.isHidden ? 'is-hidden' : undefined}
     >

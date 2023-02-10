@@ -1,16 +1,14 @@
-import React, { useRef, useImperativeHandle } from 'react';
+import { useRef, useEffect } from 'react';
 
-const Tab = React.forwardRef((props, ref) => {
+const Tab = (props) => {
   const buttonRef = useRef();
-  const activate = () => {
-    buttonRef.current.focus();
-  };
+  const { ariaSelected, focused } = props;
 
-  useImperativeHandle(ref, () => {
-    return {
-      focus: activate
-    };
-  });
+  useEffect(() => {
+    if (ariaSelected && focused) {
+      buttonRef.current.focus();
+    }
+  }, [ariaSelected, focused]);
 
   return (
     <button
@@ -19,13 +17,13 @@ const Tab = React.forwardRef((props, ref) => {
       type='button'
       role='tab'
       aria-controls={props.ariaControls}
-      aria-selected={props.ariaSelected}
+      aria-selected={ariaSelected}
       tabIndex={props.tabIndex}
       ref={buttonRef}
     >
       <span className='focus'>{props.children}</span>
     </button>
   );
-});
+};
 
 export default Tab;

@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 import Tab from './Tab';
 import {
   checkArrowRight,
@@ -8,29 +6,30 @@ import {
   checkHome
 } from '../../../util/checkKey';
 
-const Tablist = (props) => {
-  const NAMES = [
-    { content: 'Maria Ahlefeldt', tabButtonRef: useRef() },
-    { content: 'Carl Andersen', tabButtonRef: useRef() },
-    { content: 'Ida da Fonseca', tabButtonRef: useRef() },
-    { content: 'Peter Lange-Müller', tabButtonRef: useRef() },
-  ];
+const NAMES = [
+  'Maria Ahlefeldt',
+  'Carl Andersen',
+  'Ida da Fonseca',
+  'Peter Lange-Müller'
+];
 
+const Tablist = (props) => {
   const tabs = NAMES.map((item, i) => {
     const selected = props.selectedTab === i;
     const tabIndex = props.selectedTab === i ? 0 : -1;
+    const focused = props.focus === i;
 
     return (
       <Tab
         id={`tab-${i + 1}`}
         key={i}
         index={i}
-        ref={item.tabButtonRef}
         ariaControls={`tabpanel-${i + 1}`}
         ariaSelected={selected}
         tabIndex={tabIndex}
+        focused={focused}
       >
-        {item.content}
+        {item}
       </Tab>
     );
   });
@@ -53,7 +52,7 @@ const Tablist = (props) => {
       const truthy = true;
       const handleKeyDown = (index) => {
         evt.preventDefault();
-        NAMES[index].tabButtonRef.current.focus();
+        props.onTabSelect(index);
       };
 
       switch (truthy) {
@@ -93,7 +92,7 @@ const Tablist = (props) => {
     <div
       role='tablist'
       aria-labelledby={props.ariaLabelledby}
-      className='manual'
+      className='automatic'
       onClick={tablistClickHandler}
       onKeyDown={tablistKeyDownHandler}
     >
