@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# About Tabs
+
+This project takes as a basis a tabs widget that implements the tabs design pattern: [https://w3c.github.io/aria-practices/examples/tabs/tabs-manual.html](https://w3c.github.io/aria-practices/examples/tabs/tabs-manual.html) translating it from vanilla JS into React.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
