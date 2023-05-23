@@ -1,6 +1,8 @@
 # About Tabs
 
-This project takes as a basis a tabs widget that implements the tabs design pattern: [https://w3c.github.io/aria-practices/examples/tabs/tabs-automatic.html](https://w3c.github.io/aria-practices/examples/tabs/tabs-automatic.html) translating it from vanilla JS into React.
+This project takes as a basis a tabs widget that implements the tabs design pattern: [https://w3c.github.io/aria-practices/examples/tabs/tabs-automatic.html](https://w3c.github.io/aria-practices/examples/tabs/tabs-automatic.html).
+
+The project translates it from vanilla JS into React.
 
 ## Getting Started with Create React App
 
